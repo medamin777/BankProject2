@@ -1,0 +1,29 @@
+﻿  Bank.cpp
+C:\Users\ACER\source\repos\Bank\Bank\Bank.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\Screen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\String.h(29,25): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\ACER\source\repos\Bank\Bank\String.h(41,31): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\ACER\source\repos\Bank\Bank\String.h(152,29): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\ACER\source\repos\Bank\Bank\String.h(257,30): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\ACER\source\repos\Bank\Bank\String.h(299,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\ACER\source\repos\Bank\Bank\ShowClientScreen.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\ShowClientScreen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\AddClientScreen.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\AddClientScreen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\AddClientScreen.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\DeleteClientScreen.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\DeleteClientScreen.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\DeleteClientScreen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\UpdateClientScreen.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\UpdateClientScreen.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\UpdateClientScreen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\UpdateClientScreen.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\FindClientScreen.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\FindClientScreen.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\FindClientScreen.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ACER\source\repos\Bank\Bank\Util.h(55,5): warning C4102: 'defualt': unreferenced label
+C:\Users\ACER\source\repos\Bank\Bank\DeleteUserScreen.h(13,49): warning C4129: 'E': unrecognized character escape sequence
+C:\Users\ACER\source\repos\Bank\Bank\UpdateUserScreen.h(13,49): warning C4129: 'E': unrecognized character escape sequence
+C:\Users\ACER\source\repos\Bank\Bank\BankClient.h(194,1): warning C4715: 'BankClient::Save': not all control paths return a value
+C:\Users\ACER\source\repos\Bank\Bank\User.h(208,1): warning C4715: 'User::Save': not all control paths return a value
+  Bank.vcxproj -> C:\Users\ACER\source\repos\Bank\Bank\x64\Debug\Bank.exe

@@ -76,6 +76,7 @@ public:
 		cout << Message;
 		string mystring = "";
 		getline(cin, mystring);
+		cin.ignore();
 		return mystring;
 	}
 	static char ReadChar(string message)
@@ -83,6 +84,7 @@ public:
 		cout << message;
 		char Char;
 		cin >> Char;
+		cin.ignore();
 		return Char;
 	}
 	static float ReadFloat(string message)

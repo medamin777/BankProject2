@@ -9,6 +9,8 @@
 #include "FindClientScreen.h"
 #include "TransactionScreen.h"
 #include "ManageUserScreen.h"
+#include "Global.h"
+#include "LoginScreen.h"
 #include <iomanip>
 using namespace std;
 class MainScreen :protected Screen
@@ -17,7 +19,6 @@ private:
 	enum MainMenuOptions { ListClients = 1, AddNewClient = 2, DeleteClient = 3, UpdateClient = 4, FindClient = 5, ShowTransactionMenue = 6, ManageUsers = 7, Exit = 8 };
 	static short _ReadMenueOption()
 	{
-
 		short choice = InputValidation::readintegerNumberBetween(1, 8, "\n\t\t\t\t\tChoose what do you want to do ? [1 to 8] ");
 		return choice;
 	}
@@ -73,6 +74,15 @@ private:
 		ManageUserScreen::ShowManageUsersMenue();
 		_GoBackToMainMenue();
 	}
+	static void _Logout()
+	{
+		CurrentUser = User::_GetEmpyObject();
+
+		system("cls");
+
+		
+		
+	}
 	static void _PerformMainMenueOption(MainMenuOptions MainOption)
 	{
 		switch (MainOption)
@@ -100,6 +110,10 @@ private:
 			break;
 		case MainMenuOptions::UpdateClient:
 			_ShowUpdateClientScree();
+			break;
+		case MainMenuOptions::Exit:
+			_Logout();
+			
 			break;
 		}
 	}

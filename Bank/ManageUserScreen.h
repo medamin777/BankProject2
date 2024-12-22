@@ -6,6 +6,7 @@
 #include "ShowUsersScreen.h"
 #include "DeleteUserScreen.h"
 #include "UpdateUserScreen.h"
+#include "FindUserScreen.h"
 class ManageUserScreen : protected Screen
 {
 private:
@@ -44,7 +45,7 @@ private:
 	static void _ShowFindUserScreen()
 	{
 		system("cls");
-		cout << "Find Screen will be here";
+		FindUserScreen::ShowFindUser();
 		_GoBacktoManageUsersMenue();
 	}
 	static void _ShowMainMenueScreen()

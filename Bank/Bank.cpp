@@ -1,11 +1,11 @@
-#include <iostream>
-#include "MainScreen.h";
-#include "User.h"
-#include "InputValidation.h"
+#include "LoginScreen.h"
 using namespace std;
 int main()
 {
-	MainScreen::ShowMainMenue();
+	while (true)
+	{
+		LoginScreen::ShowLogin();
+	}
 	system("pause>0");
 	return 0;
 }

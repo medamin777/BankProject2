@@ -8,37 +8,43 @@ using namespace std;
 class Screen
 {
 private:
-	static int _ReadPermession()
-	{
-		int Permession = 0;
-		char Answer1 = InputValidation::ReadChar("n\t\t\t\t\tDo yout want to give it Full Acces Y/N");
-		if (tolower(Answer1) == 'y')
+	static int _ReadPermission() {
+		int Permession = 0; 
+		char Answer1 = InputValidation::ReadChar("\n\t\t\t\t\tDo yout want to give it Full Acces Y/N");
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+		if (tolower(Answer1) == 'y') 
 			return User::ePermession::All;
-		cout << "n\t\t\t\t\tDo you want to give access to :";
-		char Answer = InputValidation::ReadChar("n\t\t\t\t\tShow Clients List Y/N:");
-		if (tolower(Answer == 'y'))
+		cout << "\n\t\t\t\t\tDo you want to give access to :";
+		char Answer = InputValidation::ReadChar("\n\t\t\t\t\tShow Clients List Y/N:");
+		if (tolower(Answer == 'y')) 
 			Permession += User::ePermession::ClientList;
-		char Answer2 = InputValidation::ReadChar("n\t\t\t\t\tAdd Client");
-		if (tolower(Answer2 == 'y'))
+		char Answer2 = InputValidation::ReadChar("\n\t\t\t\t\tAdd Clients:");
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (tolower(Answer2 == 'y')) 
 			Permession += User::ePermession::AddClient;
-		char Answer3 = InputValidation::ReadChar("n\t\t\t\t\tDelete Client");
+		char Answer3 = InputValidation::ReadChar("\n\t\t\t\t\tDelete Clients:"); 
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		if (tolower(Answer3 == 'y'))
-			Permession += User::ePermession::DeleteClient;
-		char Answer4 = InputValidation::ReadChar("n\t\t\t\t\tUpdate Client");
+			Permession += User::ePermession::DeleteClient; 
+		char Answer4 = InputValidation::ReadChar("\n\t\t\t\t\tUpdate Clients:");
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 		if (tolower(Answer4 == 'y'))
-			Permession += User::ePermession::UpdateClient;
-		char Answer5 = InputValidation::ReadChar("n\t\t\t\t\tFind Client");
-		if (tolower(Answer5) == 'y')
-			Permession += User::ePermession::FindClient;
-		char Answer6 = InputValidation::ReadChar("n\t\t\t\t\tTransaction Menue");
-		if (tolower(Answer6) == 'y')
-			Permession += User::ePermession::TransactionMenue;
-		char Answer7 = InputValidation::ReadChar("n\t\t\t\t\tManage Users Menue");
-		if (tolower(Answer7 == 'y'))
-			Permession = +User::ePermession::ManageUsers;
+			Permession += User::ePermession::UpdateClient; 
+		char Answer5 = InputValidation::ReadChar("\n\t\t\t\t\tFind Clients:");
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (tolower(Answer5) == 'y') Permession += User::ePermession::FindClient; 
+		char Answer6 = InputValidation::ReadChar("\n\t\t\t\t\tTransaction Menue:");
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (tolower(Answer6) == 'y') 
+			Permession += User::ePermession::TransactionMenue; 
+		char Answer7 = InputValidation::ReadChar("\n\t\t\t\t\tManage Users Menue:"); 
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (tolower(Answer7 == 'y')) 
+			Permession = +User::ePermession::ManageUsers; 
 		return Permession;
-
 	}
+
+
 protected:
 	static void _DrawScreenHeader(string Title, string Subtitle = "")
 	{
@@ -82,12 +88,21 @@ protected:
 	}
 	static void _ReadUserInfo(User& user)
 	{
-		user.FirstName = InputValidation::ReadString("\n\t\t\t\t\tEnter  FirstName:");
-		user.LastName = InputValidation::ReadString("\n\t\t\t\t\tEnter  LastName:");
-		user.Email = InputValidation::ReadString("\n\t\t\t\t\tEnter  Email:");
-		user.Phone = InputValidation::ReadString("\n\t\t\t\t\tEnter  Phone Number:");
-		user.Password = InputValidation::ReadString("\n\t\t\t\t\tEnter  Password:");
-		user.Permession = _ReadPermession();
+		cout << "\n\t\t\t\t\tEnter  FirstName:";
+		cin.ignore();
+		user.FirstName =InputValidation::ReadString();
+		cout << "\n\t\t\t\t\tEnter  LastName:";
+		user.LastName  =InputValidation::ReadString();
+		cout << "\n\t\t\t\t\tEnter  Email:";
+		user.Email     =InputValidation::ReadString();
+		
+		cout<<"\n\t\t\t\t\tEnter  Phone Number:";
+		user.Phone     =InputValidation::ReadString();
+		
+		cout<<"\n\t\t\t\t\tEnter  Password:";
+		user.Password  =InputValidation::ReadString();
+		
+		user.Permession= _ReadPermission();
 	}
 	static void _PrintUserInfo(User user)
 	{

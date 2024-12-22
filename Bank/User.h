@@ -9,7 +9,7 @@ class User : public Person
 {
 private:
 	enum Mode { EmptyMode = 1, UpdateMode = 2, AddMode = 3 };
-	Mode _Mode;
+	Mode   _Mode;
 	string _Password;
 	string _UserName;
 	int    _Permession;
@@ -61,10 +61,7 @@ private:
 			Myfile.close();
 		}
 	}
-	static User _GetEmpyObject()
-	{
-		return User(Mode::EmptyMode, "", "", "", "", "", "", 0);
-	}
+	
 	void  _Add()
 	{
 		fstream Myfile;
@@ -131,6 +128,10 @@ public:
 		_UserName = UserName;
 	}
 	__declspec(property(get = GetUserName, put = SetUserName)) string UserName;
+	static User _GetEmpyObject()
+	{
+		return User(Mode::EmptyMode, "", "", "", "", "", "", 0);
+	}
 	static  User Find(string UserName)
 	{
 		fstream Myfile;
@@ -213,7 +214,7 @@ public:
 	static vector<User> GetAllUsers()
 	{
 		return _LoadUsersDataFromFile();
-	}
+	}		
 	enum ePermession { All = -1, ClientList = 1, AddClient = 2, DeleteClient = 4, UpdateClient = 8, FindClient = 16, TransactionMenue = 32, ManageUsers = 64 };
 };
 

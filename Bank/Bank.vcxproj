@@ -138,7 +138,10 @@
     <ClInclude Include="DeleteUserScreen.h" />
     <ClInclude Include="DepositeScreen.h" />
     <ClInclude Include="FindClientScreen.h" />
+    <ClInclude Include="FindUserScreen.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="InputValidation.h" />
+    <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="ManageUserScreen.h" />
     <ClInclude Include="Person.h" />

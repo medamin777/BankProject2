@@ -76,15 +76,13 @@ public:
 		cout << Message;
 		string mystring = "";
 		getline(cin, mystring);
-		cin.ignore();
 		return mystring;
 	}
 	static char ReadChar(string message)
 	{
 		cout << message;
 		char Char;
-		cin >> Char;
-		cin.ignore();
+		cin.get(Char);
 		return Char;
 	}
 	static float ReadFloat(string message)

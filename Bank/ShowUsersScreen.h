@@ -11,9 +11,9 @@ private:
 		cout << "|" << setw(15) << left << user.UserName;
 		cout << "|" << setw(20) << left << user.FullName();
 		cout << "|" << setw(12) << left << user.Phone;
-		cout << "|" << setw(30) << left << user.Email;
-		cout << "|" << setw(10) << left << user.Password;
-		cout << "|" << setw(12) << left << user.Permession;
+		cout << "|" << setw(40) << left << user.Email;
+		cout << "|" << setw(20) << left << user.Password;
+		cout << "|" << setw(18) << left << user.Permession;
 	}
 public:
 	static void ShowUsersList()
@@ -27,9 +27,9 @@ public:
 		cout << "|" << left << setw(15) << "User Name";
 		cout << "|" << left << setw(20) << "Full Name";
 		cout << "|" << left << setw(12) << "Phone";
-		cout << "|" << left << setw(30) << "Email";
-		cout << "|" << left << setw(10) << "Password";
-		cout << "|" << left << setw(12) << "Permession";
+		cout << "|" << left << setw(40) << "Email";
+		cout << "|" << left << setw(20) << "Password";
+		cout << "|" << left << setw(18) << "Permession";
 		cout << "\n___________________________________________________________";
 		cout << "______________________________________________________________\n" << endl;
 		if (Users.size() == 0)

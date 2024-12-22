@@ -35,6 +35,10 @@ private:
 public:
 	static void ShowAddClient()
 	{
+		if (!(_AccesRights(User::ePermession::AddClient)))
+		{
+			return;
+		}
 		_DrawScreenHeader("Add Client Screen");
 		_AddNewClient();
 	}

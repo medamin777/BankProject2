@@ -38,6 +38,7 @@ private:
 	{
 		system("cls");
 		//cout << "\nClient Add Screen will be here...\n";
+		
 		AddClientScreen::ShowAddClient();
 		_GoBackToMainMenue();
 	}
@@ -79,7 +80,7 @@ private:
 		CurrentUser = User::_GetEmpyObject();
 
 		system("cls");
-
+	
 		
 		
 	}
@@ -88,8 +89,7 @@ private:
 		switch (MainOption)
 		{
 		case MainMenuOptions::AddNewClient:
-
-			_ShowAddClientScreen();
+				_ShowAddClientScreen();
 			break;
 		case MainMenuOptions::DeleteClient:
 

@@ -8,7 +8,10 @@ class FindClientScreen :protected Screen
 public:
     static void ShowFindClient()
     {
-
+        if (!(_AccesRights(User::ePermession::FindClient)))
+        {
+            return;
+        }
         _DrawScreenHeader("Find Client Screen");
         string AccountNumber;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');

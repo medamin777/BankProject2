@@ -9,6 +9,10 @@ public:
 
 	static void ShowDeleteClient()
 	{
+		if (!(_AccesRights(User::ePermession::DeleteClient)))
+		{
+			return;
+		}
 		_DrawScreenHeader("Delete Client Screen");
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		string AccountNumber = InputValidation::ReadString("\n\n\t\t\t\t\tEnter Account Number ");

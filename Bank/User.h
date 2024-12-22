@@ -215,6 +215,16 @@ public:
 	{
 		return _LoadUsersDataFromFile();
 	}		
-	enum ePermession { All = -1, ClientList = 1, AddClient = 2, DeleteClient = 4, UpdateClient = 8, FindClient = 16, TransactionMenue = 32, ManageUsers = 64 };
+	static enum ePermession { All = -1, ClientList = 1, AddClient = 2, DeleteClient = 4, UpdateClient = 8, FindClient = 16, TransactionMenue = 32, ManageUsers = 64 };
+		bool CheckAccesPersmission(ePermession Permession)
+		{
+		if (this->_Permession == ePermession::All)
+				return true;
+		if ((this->_Permession & Permession) == Permession)
+				return true;
+		else
+		
+			return false;
+		}
 };
 

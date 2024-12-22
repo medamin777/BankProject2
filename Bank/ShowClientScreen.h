@@ -19,6 +19,10 @@ private:
 public:
 	static void ShowClientList()
 	{
+		if (!(_AccesRights(User::ePermession::ClientList)))
+		{
+			return;
+		}
 		vector<BankClient> Clients = BankClient::GetClientLists();
 		string Title = "Client List Screen";
 		string SubTitle = "\t\t(" + to_string(Clients.size()) + ") Client(s)";

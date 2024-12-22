@@ -86,7 +86,10 @@ public:
 	static void ShowManageUsersMenue()
 	{
 		system("cls");
-		_DrawScreenHeader("Manage Users Screen");
+		if (!(_AccesRights(User::ePermession::ManageUsers)))
+		{
+			return;
+		}
 		cout << "\n\n\t\t\t\t\t========================================\n";
 		cout << "\t\t\t\t\t\t\tManage Users Menue";
 		cout << "\n\t\t\t\t\t========================================";

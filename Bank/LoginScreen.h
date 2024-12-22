@@ -12,14 +12,14 @@ private:
 		string Password = "";
 		bool FaildLogin = false;
 		do{
-			if (FaildLogin)
+			if (FaildLogin) 
 			{
-				cout << "\n\t\t\t\t\tInvalid User";
+				cout << "\n\t\t\t\t\tInvalid User !";
 			}
-			cout << "\n\t\t\t\t\tEnter User Name";
+			cout << "\n\t\t\t\t\tEnter User Name: ";
 			cin >> Username;
 			cin.ignore();
-			cout << "\n\t\t\t\t\tEnter Password"; 
+			cout << "\n\t\t\t\t\tEnter Password: "; 
 			getline(cin, Password);
 			CurrentUser = User::Find(Username, Password);
 			FaildLogin = CurrentUser.IsEmpty();

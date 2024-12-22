@@ -9,6 +9,11 @@ class UpdateClientScreen : protected Screen
 public:
 	static void ShowUpdateClients()
 	{
+		if (!(_AccesRights(User::ePermession::UpdateClient)))
+		{
+			return;
+		}
+
 		_DrawScreenHeader("Update Client Screen");
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		string AccountNumber = InputValidation::ReadString("\n\n\t\t\t\t\tPlease Enter client Account Number");

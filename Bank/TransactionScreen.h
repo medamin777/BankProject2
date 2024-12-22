@@ -69,6 +69,10 @@ public:
 	static void ShowTransactionMenue()
 	{
 		system("cls");
+		if (!(_AccesRights(User::ePermession::TransactionMenue)))
+		{
+			return;
+		}
 		_DrawScreenHeader("Transaction Screen");
 		cout << "\n\n\t\t\t\t\t========================================\n";
 		cout << "\t\t\t\t\t\t\tTransaction Main Menue";

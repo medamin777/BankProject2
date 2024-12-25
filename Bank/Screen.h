@@ -6,6 +6,7 @@ using namespace std;
 #include "BankClient.h"
 #include "User.h"
 #include "Global.h"
+#include "Date.h"
 class Screen
 {	
 private:
@@ -64,6 +65,8 @@ protected:
 			cout << "\n\n\t\t\t\t\t " << Subtitle;
 		}
 		cout << "\n\t\t\t\t\t====================================================";
+		cout << "\n\t\t\t\t\tUser:" << CurrentUser.UserName;
+		cout << "\n\t\t\t\t\tDate:" << date::GetSystemDate().DateToString();
 	}
 	static void _ReadClientInfo(BankClient& Client)
 	{

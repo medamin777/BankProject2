@@ -6,33 +6,43 @@
 class LoginScreen :protected Screen
 {
 private:
-	void static _Login()
+	bool static _Login()
 	{
 		string Username = "";
 		string Password = "";
-		bool FaildLogin = false;
-		do{
-			if (FaildLogin) 
+		bool LoginFaild = false;
+		short FaildLoginCount = 0;
+		do {
+			if (LoginFaild)
 			{
-				cout << "\n\t\t\t\t\tInvalid User !";
+				FaildLoginCount++;
+				cout << "\n\t\t\t\t\tInvalid UserName/Password! you have " << 3-FaildLoginCount << " trials to login\n";
+				
 			}
-			cout << "\n\t\t\t\t\tEnter User Name: ";
+			if (FaildLoginCount==3)
+			{
+				cout << "\n\t\t\t\t\tYour are Locked after 3 faild trails \n\n";
+				return false;
+			}
+			cout << "\n\t\t\t\t\tEnter Username :";
 			cin >> Username;
 			cin.ignore();
-			cout << "\n\t\t\t\t\tEnter Password: "; 
-			getline(cin, Password);
+			cout << "\n\t\t\t\t\tEnter Password :";
+			cin >> Password;
 			CurrentUser = User::Find(Username, Password);
-			FaildLogin = CurrentUser.IsEmpty();
-		} while (FaildLogin);
-		
+			LoginFaild = CurrentUser.IsEmpty();
+
+
+		} while (LoginFaild);
+		MainScreen::ShowMainMenue();
+		return true;
 	}
 public :
-	void static ShowLogin()
+	bool static ShowLogin()
 	{
+		system("cls");
 		_DrawScreenHeader("Login Screen");
-		_Login();
-		MainScreen::ShowMainMenue();
-		
+		return _Login();
 	}
 };
 

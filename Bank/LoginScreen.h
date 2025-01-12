@@ -2,6 +2,7 @@
 #include "Screen.h"
 #include "User.h"
 #include "Global.h"
+#include "LoginUser.h"
 #include "MainScreen.h"
 class LoginScreen :protected Screen
 {
@@ -30,10 +31,13 @@ private:
 			cout << "\n\t\t\t\t\tEnter Password :";
 			cin >> Password;
 			CurrentUser = User::Find(Username, Password);
+			
 			LoginFaild = CurrentUser.IsEmpty();
 
 
 		} while (LoginFaild);
+	    //Add the registration of user in file
+		LoginUser::RegisterLogin();
 		MainScreen::ShowMainMenue();
 		return true;
 	}

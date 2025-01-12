@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include "String.h"
+
 using namespace std;
 class User : public Person
 {
@@ -89,10 +90,17 @@ private:
 	{
 		_MarKForDelete = true;
 	}
+	
 public:
 	User(Mode Mode, string FirstName, string LastName, string Email, string Phone, string UserName, string Password, int Permession) :Person(FirstName, LastName, Email, Phone)
 	{
 		_Mode = Mode;
+		_UserName = UserName;
+		_Password = Password;
+		_Permession = Permession;
+	}
+	User(string UserName, string Password, int Permession) 
+	{
 		_UserName = UserName;
 		_Password = Password;
 		_Permession = Permession;
@@ -191,6 +199,7 @@ public:
 		*this = _GetEmpyObject();
 		return true;
 	}
+	
 	enum SaveResults { SaveFaild = 0, SaveSucced = 1 };
 	SaveResults Save()
 	{
@@ -209,7 +218,7 @@ public:
 	}
 	static User GetAddNewUser(string UserName)
 	{
-		return User(Mode::AddMode, "", "", "", "", UserName, "", 0);
+		return User(Mode::AddMode,"", "", "", "", UserName, "", 0);
 	}
 	static vector<User> GetAllUsers()
 	{
@@ -223,8 +232,9 @@ public:
 		if ((this->_Permession & Permession) == Permession)
 				return true;
 		else
-		
+		   
 			return false;
 		}
+
 };
 

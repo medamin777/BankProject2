@@ -17,6 +17,10 @@ public:
 		_Email = Email;
 		_Phone = Phone;
 	}
+	Person()
+	{
+
+	}
 	void SetFirstName(string FirstName)
 	{
 		_FirstName = FirstName;

@@ -84,6 +84,21 @@ public:
 		Day = now->tm_mday;
 		return date(Day, Month, Year);
 	}
+	static string GetSystemAll()
+	{
+		time_t t = time(0);
+		tm* now = localtime(&t);
+		short Day, Mounth, Year, Hour, Minutes, Seconds;
+		Year = now->tm_year + 1900;
+		Mounth = now->tm_mon;
+		Day = now->tm_mday;
+		Hour = now->tm_hour;
+		Minutes = now->tm_min;
+		Seconds = now->tm_sec;
+		return to_string(Day) + "/" + to_string(Mounth) + "/" + to_string(Year) + "-" + to_string(Hour) + ":" + to_string(Minutes) + ":" + to_string(Seconds);
+
+		
+	}
 	static bool IsValidDate(date date)
 	{
 

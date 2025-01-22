@@ -3,6 +3,7 @@ using namespace std;
 #include <iostream>
 #include "LoginUser.h"
 #include "Screen.h"
+#include "User.h"
 class RegistLoginScreen : public Screen
 {
 private:
@@ -18,6 +19,10 @@ private:
 public :
 	static void ShowLoginUsers()
 	{
+		if (!(_AccesRights(User::ePermession::LoginRegistration)))
+		{
+			return;
+		}
 		vector<LoginUser> LoginUsers = LoginUser::GetAllLoginUsers();
 		string Title = "Login Register List Screen";
 		string SubTitle = "\t\t(" + to_string(LoginUsers.size()) + ") Record(s)";

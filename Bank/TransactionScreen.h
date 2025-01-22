@@ -7,15 +7,17 @@
 #include "DepositeScreen.h"
 #include "WithdrawScrenn.h"
 #include "TotalBalancesScreen.h"
+#include "TransferScreen.h"
+#include "TransferLogScreen.h"
 using namespace std;
 class TransactionScreen :protected Screen
 {
 private:
-	enum TransactionOption { Depostie = 1, Withdraw = 2, TotalBalance = 3, MainMenue = 4 };
+	enum TransactionOption { Depostie = 1, Withdraw = 2, TotalBalance = 3,Transfert = 4,TransferLog=5,MainMenue=6 };
 	static short _ReadTransactionMenue()
 	{
 		short choice = 0;
-		choice = InputValidation::readintegerNumberBetween(1, 4, "\n\t\t\t\t\tChoose what do you want to do ? [1 to 4]");
+		choice = InputValidation::readintegerNumberBetween(1, 6, "\n\t\t\t\t\tChoose what do you want to do ? [1 to 6]");
 		return choice;
 	}
 	static void _GoBackToTransactionMenue()
@@ -43,9 +45,23 @@ private:
 		TotalBalancesScreen::ShowTotalBalances();
 		_GoBackToTransactionMenue();
 	}
+	
+	static void _ShowTransferScreen()
+	{
+		system("cls");
+		TransferScreen::ShowTransfer();
+		_GoBackToTransactionMenue();
+	}
+	static void _ShowTransferLogScreen()
+	{
+		system("cls");
+		TransferLogScreen::ShowTransferLog();
+		_GoBackToTransactionMenue();
+
+	}
 	static void _ShowMainMenueScreen()
 	{
-
+		
 	}
 	static void _PerformTransactionMenue(TransactionOption Choice)
 	{
@@ -62,7 +78,15 @@ private:
 			break;
 		case TransactionOption::TotalBalance:
 			_ShowTotalBalanceScreen();
+				break;
+		case TransactionOption::Transfert:
+			_ShowTransferScreen();
 			break;
+	
+		case TransactionOption::TransferLog:
+			_ShowTransferLogScreen();
+			break;
+			
 		}
 	}
 public:
@@ -80,7 +104,9 @@ public:
 		cout << "\n\t\t\t\t\t[1] Deposite";
 		cout << "\n\t\t\t\t\t[2] Withdraw";
 		cout << "\n\t\t\t\t\t[3] Totale Balances";
-		cout << "\n\t\t\t\t\t[4] Main Menue";
+		cout << "\n\t\t\t\t\t[4] Transfer";
+		cout << "\n\t\t\t\t\t[5] Transfer Log";
+		cout << "\n\t\t\t\t\t[6] Main Menue";
 		cout << "\n\t\t\t\t\t========================================";
 		_PerformTransactionMenue(TransactionOption(_ReadTransactionMenue()));
 	}

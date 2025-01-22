@@ -46,7 +46,10 @@ private:
 		char Answer7 = InputValidation::ReadChar("\n\t\t\t\t\tManage Users Menu Y/N: ");
 		if (tolower(Answer7) == 'y')
 			Permession += User::ePermession::ManageUsers;
-
+		cin.ignore();
+		char Answer8 = InputValidation::ReadChar("\n\t\t\t\t\tLogin Registration");
+		if (tolower(Answer8) == 'y')
+			Permession += User::ePermession::LoginRegistration;
 		return Permession; 
 	}
 

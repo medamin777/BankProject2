@@ -104,5 +104,11 @@
     <ClInclude Include="LoginUser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TransferScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransferLogScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

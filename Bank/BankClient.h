@@ -5,16 +5,19 @@
 #include "String.h"
 #include <vector>
 #include <fstream>
+#include "Date.h"
+#include "Global.h"
 using namespace std;
 class BankClient :public Person
 {
 private:
+	
 	enum Mode { EmptyMode = 0, UpdateMode = 1, AddNewMode = 2 };
-	Mode _Mode;
+	Mode   _Mode;
 	string _AccountNumber;
 	string _PinCode;
 	float _AccountBalance;
-	bool MarkForDelete = false;
+	bool  MarkForDelete = false;
 	static BankClient _ConvertLinetoClientObject(string Line, string separator = "#//#")
 	{
 		vector<string> ClientData = String::Split(Line, separator);
@@ -96,7 +99,39 @@ private:
 			Myfile.close();
 		}
 	}
+	 string _PrepareTrasferLine(BankClient Destination,float Amount,string sep="#//#")
+	{
+		string Line = "";
+		Line += date::GetSystemAll() +sep;
+		Line += this->AccountNumber() + sep;
+		Line += Destination.AccountNumber() + sep;
+		Line += to_string(Amount) + sep;
+		Line += to_string(this->AccountBalance) + sep;
+		Line += to_string(Destination.AccountBalance) + sep;
+		Line += CurrentUser.UserName;
+		return Line;
+	}
+	 void _RegisterTransferLog(BankClient Destination, float Amount, string sep = "#//#")
+	 {
+		 fstream Myfile;
+		 Myfile.open("TransferLog.txt", ios::out | ios::app);
+		 if (Myfile.is_open())
+		 {
+			 Myfile << _PrepareTrasferLine(Destination, Amount) << endl;
+			 Myfile.close();
+		 }
+	 }
+	
 public:
+	struct TransferLog {
+		string date;
+		string SourceAccount;
+		string DestinationAccount;
+		float Amount;
+		float SourceBalance;
+		float DestinationBalance;
+		string UserName;
+	};
 	BankClient(Mode Mode, string FirstName, string LastName, string Email, string Phone, string AccountNumber, string PinCode, float AccountBalance) : Person(FirstName, LastName, Email, Phone)
 	{
 		_Mode = Mode;
@@ -238,6 +273,45 @@ public:
 			TotalBalance += client.AccountBalance;
 		}
 		return TotalBalance;
+	}
+	bool Transfer(BankClient &Destination,float Amount)
+	{
+		if (Amount > this->AccountBalance)
+		{
+			return false;
+		}
+		Withdraw(Amount);
+		Destination.Deposite(Amount);
+		_RegisterTransferLog(Destination, Amount);
+
+
+		return true;
+	}
+	static TransferLog _ConvertLinetoStruct(string Line, string sep = "#//#")
+	{
+		TransferLog transferlog;
+		vector<string> vString = String::Split(Line, sep);
+		transferlog.date = vString[0];
+		transferlog.SourceAccount = vString[1];
+		transferlog.DestinationAccount = vString[2];
+		transferlog.Amount = stof(vString[3]);
+		transferlog.SourceBalance = stof(vString[4]);
+		transferlog.DestinationBalance = stof(vString[5]);
+		transferlog.UserName = vString[6];
+		return transferlog;
+
+	}
+	static vector<TransferLog> getAllTransfer(string FilePath,string sep="#//#")
+	{
+		vector<TransferLog> transferlogs;
+		string Line;
+		ifstream MyFileReader(FilePath);
+		while (getline(MyFileReader,  Line))
+		{
+			transferlogs.push_back(_ConvertLinetoStruct(Line));
+		}
+		MyFileReader.close();
+		return transferlogs;
 	}
 };
 

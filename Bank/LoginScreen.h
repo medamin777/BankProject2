@@ -38,6 +38,7 @@ private:
 		} while (LoginFaild);
 	    //Add the registration of user in file
 		LoginUser::RegisterLogin();
+
 		MainScreen::ShowMainMenue();
 		return true;
 	}
